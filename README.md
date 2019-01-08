@@ -12,4 +12,4 @@ Android自定义安全软键盘
 
 *  重新赋值每个按键对应的keycode
 
-![https://github.com/PDonkey/SafeKeyboard/blob/master/20190108.gif]
+![image](https://github.com/PDonkey/SafeKeyboard/blob/master/20190108.gif)
