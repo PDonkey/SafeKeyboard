@@ -27,8 +27,6 @@ public class SafeKeyboardView extends KeyboardView {
     private Context mContext;
     private boolean isCap;
     private Drawable delDrawable;
-    private Drawable lowDrawable;
-    private Drawable upDrawable;
     private Drawable shiftDrawable;
     /**
      * 按键的宽高至少是图标宽高的倍数
@@ -50,8 +48,7 @@ public class SafeKeyboardView extends KeyboardView {
     private void init() {
         this.isCap = false;
         this.delDrawable = null;
-        this.lowDrawable = null;
-        this.upDrawable = null;
+        this.shiftDrawable = null;
 
 
     }
@@ -78,15 +75,8 @@ public class SafeKeyboardView extends KeyboardView {
             drawKeyBackground(R.drawable.keyboard_special_press_bg, canvas, key);
             drawTextAndIcon(canvas, key, null);
         } else if (key.codes[0] == -1) {
-//            drawKeyBackground(R.drawable.btn_keyboard_key_shift, canvas, key);
-//            drawTextAndIcon(canvas, key, upDrawable);
-            if (isCap) {
-                drawKeyBackground(R.drawable.btn_keyboard_key_shift, canvas, key);
-                drawTextAndIcon(canvas, key, upDrawable);
-            } else {
-                drawKeyBackground(R.drawable.btn_keyboard_key_shift, canvas, key);
-                drawTextAndIcon(canvas, key, lowDrawable);
-            }
+            drawKeyBackground(R.drawable.btn_keyboard_key_shift, canvas, key);
+            drawTextAndIcon(canvas, key, shiftDrawable);
         }
     }
 
@@ -192,14 +182,6 @@ public class SafeKeyboardView extends KeyboardView {
 
     public void setDelDrawable(Drawable delDrawable) {
         this.delDrawable = delDrawable;
-    }
-
-    public void setLowDrawable(Drawable lowDrawable) {
-        this.lowDrawable = lowDrawable;
-    }
-
-    public void setUpDrawable(Drawable upDrawable) {
-        this.upDrawable = upDrawable;
     }
 
     public void setShiftDrawable(Drawable shiftDrawable) {

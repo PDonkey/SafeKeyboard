@@ -30,8 +30,7 @@ public class MainActivity extends AppCompatActivity {
         safeKeyboard = new SafeKeyboard(getApplicationContext(), keyboardContainer, safeEdit,
                 R.layout.layout_keyboard_containor, view.findViewById(R.id.safeKeyboardLetter).getId());
         safeKeyboard.setDelDrawable(this.getResources().getDrawable(R.drawable.keyboard_delete));
-        safeKeyboard.setLowDrawable(this.getResources().getDrawable(R.drawable.keyboard_shift));
-        safeKeyboard.setUpDrawable(this.getResources().getDrawable(R.drawable.keyboard_shift));
+        safeKeyboard.setShiftDrawable(this.getResources().getDrawable(R.drawable.keyboard_shift));
         initData();
     }
 

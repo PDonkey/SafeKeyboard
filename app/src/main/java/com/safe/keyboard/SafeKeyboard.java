@@ -53,8 +53,6 @@ public class SafeKeyboard {
     private Handler hEndHandler = new Handler(Looper.getMainLooper());
     private Handler sEndHandler = new Handler(Looper.getMainLooper());
     private Drawable delDrawable;
-    private Drawable lowDrawable;
-    private Drawable upDrawable;
     private Drawable shiftDrawable;
     private int keyboardContainerResId;
     private int keyboardResId;
@@ -77,15 +75,14 @@ public class SafeKeyboard {
     }
 
     SafeKeyboard(Context mContext, LinearLayout layout, EditText mEditText, int id, int keyId,
-                 Drawable del, Drawable low, Drawable up) {
+                 Drawable del, Drawable shift) {
         this.mContext = mContext;
         this.layout = layout;
         this.mEditText = mEditText;
         this.keyboardContainerResId = id;
         this.keyboardResId = keyId;
         this.delDrawable = del;
-        this.lowDrawable = low;
-        this.upDrawable = up;
+        this.shiftDrawable= shift;
 
         initKeyboard();
         initAnimation();
@@ -160,8 +157,7 @@ public class SafeKeyboard {
         // 由于符号键盘与字母键盘共用一个KeyBoardView, 所以不需要再为符号键盘单独实例化一个KeyBoardView
         keyboardView = keyContainer.findViewById(keyboardResId);
         keyboardView.setDelDrawable(delDrawable);
-        keyboardView.setLowDrawable(lowDrawable);
-        keyboardView.setUpDrawable(upDrawable);
+        keyboardView.setShiftDrawable(shiftDrawable);
         keyboardView.setKeyboard(keyboardLetter);                         //给键盘View设置键盘
         keyboardView.setEnabled(true);
         keyboardView.setPreviewEnabled(false);
@@ -515,18 +511,9 @@ public class SafeKeyboard {
         keyboardView.setDelDrawable(delDrawable);
     }
 
-    public void setLowDrawable(Drawable lowDrawable) {
-        this.lowDrawable = lowDrawable;
-        keyboardView.setLowDrawable(lowDrawable);
-    }
 
-    public void setUpDrawable(Drawable upDrawable) {
-        this.upDrawable = upDrawable;
-        keyboardView.setUpDrawable(upDrawable);
-    }
-
-    public void setShiftDrawable(Drawable upDrawable) {
-        this.upDrawable = upDrawable;
-        keyboardView.setUpDrawable(upDrawable);
+    public void setShiftDrawable(Drawable shiftDrawable) {
+        this.shiftDrawable = shiftDrawable;
+        keyboardView.setShiftDrawable(shiftDrawable);
     }
 }
