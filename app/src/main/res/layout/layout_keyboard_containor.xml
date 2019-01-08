@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/color_d8dbdf"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/keyboardHeader"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/keyboard_tip_height"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:orientation="horizontal"
+            tools:ignore="RelativeOverlap,UseCompoundDrawables">
+
+            <ImageView
+                android:layout_width="25sp"
+                android:layout_height="25sp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/shield" />
+
+            <TextView
+                android:id="@+id/keyboardTip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/safe_keyboard"
+                android:textColor="@color/color_3c3c3c"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/keyboardDone"
+            android:layout_width="60sp"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/keyboard_change">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="35dp"
+                android:layout_gravity="center"
+                android:contentDescription="@null"
+                android:src="@drawable/arrows_down"
+                android:rotation="180" />
+        </FrameLayout>
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/keyboardLayer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10sp">
+
+        <com.safe.keyboard.SafeKeyboardView
+            android:id="@+id/safeKeyboardLetter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true"
+            android:background="@color/color_d8dbdf"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:keyBackground="@drawable/keyboard_press_bg"
+            android:keyPreviewHeight="60dp"
+            android:keyPreviewLayout="@layout/keyboard_preview_layout"
+            android:keyPreviewOffset="0dp"
+            android:shadowRadius="0.0"
+            android:keyTextColor="@color/black" />
+
+    </FrameLayout>
+</LinearLayout>
